@@ -13,7 +13,7 @@ public class Main {
         try {
             connection = DriverManager.getConnection(URL_MYSQL,USER,PASSWORD);
             Statement statement = connection.createStatement();
-            statement.executeUpdate("INSERT INTO proveedor VALUES (2,'proveedor2', 155548)");
+            statement.executeUpdate("INSERT INTO proveedor VALUES (6,'proveedor6', 365548)");
         }catch (Exception e){
             e.printStackTrace();
         }finally {
