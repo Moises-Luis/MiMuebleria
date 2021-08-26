@@ -3,30 +3,111 @@
     --color-secundario:#ddbf8f;
     --color-terciario: #463126;
     --color-cuaternario:#4f3b30;
+
     --sombra: rgba(0,0,0,0.2);
 
 }
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    background: var(--color-primario);
+}
+
+header, .wrapper{
+    width: 90%;
+    margin: 0px auto;
+    background: var(--color-primario);
+}
+.caja-logo{
+    background: white;
+    display: inline-block;
+    float:left;
+    height: 50px;
+}
+.caja-logo .logo{
+    height: 100%;
+}
+nav{
+    background: var(--color-secundario);
+    overflow: hidden;
+}
+nav ul{
+    list-style-type: none;
+}
+nav ul li{
+    float: left;
+}
+nav ul li a{
+    padding: 15px 15px;
+    display: block;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    background: var(--color-secundario);
+    color: black;
+}
+nav ul li a:hover{
+    background: var(--color-cuaternario);
+    color: white;
+}
+.wrapper{
+    clear: both;
+
+}
+.wrapper .articles{
+    background: yellowgreen;
+    margin-top: 30px;
+    width: 70%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    float: left;
+}
+.wrapper .articles .tabla{
+    width: calc(100% - 80px);
+    background: wheat;
+    padding: 20px 20px;
+    margin: 20px;
+    margin-bottom: 20px;
+}
+
+.wrapper aside{
+    background: yellow;
+    margin-top: 30px;
+    width: 25%;
+    float: left;
+    margin-bottom: 20px;
+}
 h1{
+    margin-top: 20px;
     text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-terciario);
 }
 .wrapper{
     background: yellowgreen;
     width: 90%;
-    margin: 0 auto;
+
 }
 .tabla{
     width: 60%;
     background: #cccccc;
     float: left;
     margin-right: 5%;
-}
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+}
 table{
     border-collapse: separate;
     /*border-collapse: collapse;*/
+    display: block;
     overflow-x: auto;
     margin: 0 auto;
-    background: #000;
     border-radius: 15px;
 }
 table td{
@@ -37,39 +118,102 @@ table td{
     -moz-border-radius-topleft: 15px;
     -moz-border-radius-topright: 15px;
 }
-.sub-titulo, .titulo-edicion{
+.sub-titulo{
     display: block;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
 }
 .form-ordenar{
-    width: 20%;
     border: 1px solid #ccc;
-    margin: 20px auto;
     padding: 20px;
 }
-.menor-mayor, .mayor-menor{
+.menor-mayor, .mayor-menor, .ninguno{
     font-size: 14px;
     float: left;
 }
-input[type="radio"], input[type="button"]{
+input[type="radio"]{
     display: block;
 }
-.edicion{
-    background: white;
-    width: 160px;
-    float: left;
+
+/* ----popup------  */
+.overlay{
+    clear: both;
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+.overlay.active{
+    visibility: visible;
+}
+
+.popup{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    font-family: 'Monospaced', sans-serif;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+
+    transition: .3s ease all;
+    transform: scale(0.7);
+    opacity: 0;
 
 }
-.form-edicion{
-    width: 100%;
-    border: 1px solid #ccc;
-    margin: 0px auto;
-    padding: 10px;
+.popup .btn-cerrar-popup{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
+    transition: .3s ease all;
 }
-input[type="button"]{
-    height: 55px;
-    width: 90%;
-    margin: 10px auto;
+.popup .btn-cerrar-popup:hover{
+    color: black;
+}
+.popup h3{
+    font-size: 36px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    /*opacity: 0;*/
+}
+.popup form .contenedor-inputs{
+
+}
+.popup form .contenedor-inputs input{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #BBBBBB;
+}
+.popup form .btn-submit{
+    padding: 0px 20px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    color: #fff;
+    background: #5E7de3;
+    font-size: 16px;
+    font-family: 'Monospaced', sans-serif;
+    cursor: pointer;
+    transition: .3s ease all;
+}
+.popup form .btn-submit:hover{
+    background: rgba(94,125,227,.8);
+}
+/*----animaciones ----*/
+.popup.active{
+    opacity: 1;
+    transform: scale(1);
 }

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>fabrica</title>
@@ -13,12 +14,7 @@
 </head>
 
 <body>
-    <h3 id="sub"></h3>
-    <h3 id="sub2"></h3>
-    <h4 id="sub3"></h4>
-    <h5 id="sub4"></h5>
-    <p id="linkPagina"></p>
-    <p id="codigos"></p>
+
     <%!
     String titulo = "";
     String titulos[] = {"Usuarios","Libro","Piezas","Tipo de mueble","Ensamble de Piezas","Ensamble de mueble","Muebles"};
@@ -32,12 +28,11 @@
                for (int i = 0; i<7; i++){ %>
 
            <div id="cuadro<%=i+1%>" class="cuadro">
+
                <div class="imagen">
                    <img src="../imagenes/raton<%=i+1%>.png" alt="imagen relacionada al boton">
                </div>
-
-                   <h2><%=titulos[i]%></h2>
-
+               <h2>Piezas</h2>
            </div>
            <%
                }
@@ -53,21 +48,24 @@
         $<%! String x = ""; %>
 
         $(document).text(function (){
+
             $('.cuadro').click(function (){
-                /*$("#cuadro1").attr("class","cambio");
-                $("#cuadro1").attr("stylesheet","css/fabrica.css");*/
+
+                /*
+                /!*$("#cuadro1").attr("class","cambio");
+                $("#cuadro1").attr("stylesheet","css/fabrica.css");*!/
 
                 $(this).hide(2000).show(1000);
-                /*$("#sub").text("<%= request.getRequestURL().toString()%>" );
-                $("#sub2").text("<%= request.getRequestURI()%>" );
-                $("#sub3").text("<%= request.getServletPath()%>" );
-                $("#sub4").text("<%= request.getContextPath()%>" );
-                $("#linkPagina").html(window.location.pathname);*/
-                window.location.pathname = "<%= request.getContextPath()%>"+"/fabrica/pieza.jsp";
+                /!*$("#sub").text("</!*%= request.getRequestURL().toString()%>" );
+                $("#sub2").text("</!*%= request.getRequestURI()%>" );
+                $("#sub3").text("</!*%= request.getServletPath()%>" );
+                $("#sub4").text("</!*%= request.getContextPath()%>" );
+                $("#linkPagina").html(window.location.pathname);*!/
+                */
 
-
-
+                window.location.pathname = "<%= request.getContextPath()%>"+"/piezas";
             });
+
         });
     </script>
 
