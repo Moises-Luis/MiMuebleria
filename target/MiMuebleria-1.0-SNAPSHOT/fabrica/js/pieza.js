@@ -14,8 +14,3 @@ var botonAuxCerrar = document.getElementById('botonCerrarAuxiliar');
         popup.classList.add('active');
         console.log(overlay.classList);
     });
-    btnCerrarPopup.addEventListener('click',function (){
-        overlay.classList.remove('active');
-        popup.classList.remove('active');
-        window.location = window.location.pathname;
-    });

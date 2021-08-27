@@ -21,7 +21,6 @@ public class HelloServlet extends HttpServlet {
            String cadenaDeVariable = request.getParameter("ordenar_por");
             request.setAttribute("msgError",cadenaDeVariable);
             try {
-                System.out.println("Lo intento XD");
                 if (request.getParameter("ordenar_por")== null){
                     ordenarPor=0;
                 }else {

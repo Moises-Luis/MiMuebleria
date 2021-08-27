@@ -27,7 +27,7 @@
 <head>
     
     <title>pieza</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/fabrica/css/pieza.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/pieza.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/all.min.css">
 
 </head>
@@ -46,8 +46,6 @@
         errorTipo=true;
         }
 
-        if (request.getSession().getAttribute("errorBooleano")!=null)
-        auxBorrarBoolean = (boolean) request.getSession().getAttribute("errorBooleano");
     %>
     <header>
         <div class="caja-logo">
@@ -56,9 +54,9 @@
         <nav>
             <ul>
                 <li><a href="${pageContext.request.contextPath}/fabrica/fabrica.jsp">INICIO</a></li>
-                <li><a href="#" id="crear-registro">CREAR REGISTRO</a></li>
-                <li><a href="#">ELIMINAR REGISTRO</a></li>
-                <li><a href="#">MODIFICAR REGISTRO</a></li>
+                <li><a href="fabrica/crear-registro" id="crear-registro">CREAR REGISTRO</a></li>
+                <li><a href="fabrica/eliminar-registro">ELIMINAR REGISTRO</a></li>
+                <li><a href="fabrica/editar-registro">MODIFICAR REGISTRO</a></li>
             </ul>
         </nav>
 
@@ -75,7 +73,7 @@
                     <table class="miTabla">
                         <tr>
                             <td>Tipo</td>
-                            <td>Pr+ecio</td>
+                            <td>Precio</td>
                             <td>Cantidad Disponible</td>
                         </tr>
 
@@ -138,7 +136,7 @@
 
     <%-------parte oculta-------%>
     <%--class=<%=nombreClase1%>--%>
-    <div <c:if test="${errorBooleano==false || errorBooleano==false}"> class="overlay" </c:if> <c:if test="${errorBooleano=='true'}"> class="overlay active" </c:if>  id="overlay">
+<%--    <div <c:if test="${errorBooleano==false || errorBooleano==false}"> class="overlay" </c:if> <c:if test="${errorBooleano=='true'}"> class="overlay active" </c:if>  id="overlay">
         <div <c:if test="${errorBooleano==false || errorBooleano==false}"> class="popup" </c:if> <c:if test="${errorBooleano=='true'}"> class="popup active" </c:if> id="popup">
             <a href="#" onclick="cerrar();" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times" ></i></a>
             <h3>Ingresa los datos</h3>
@@ -159,7 +157,7 @@
     if(request.getParameter("error") == null ){
         request.getSession().removeAttribute("errorBooleano");
     }
-%>
+%>--%>
 
     <script src="${pageContext.request.contextPath}/fabrica/js/pieza.js"></script>
     <script src="${pageContext.request.contextPath}/jquery-3.6.0.min.js"></script>
@@ -169,7 +167,6 @@
             alert("Hola!!!")
         }
         function getMayorMenor(){
-
             document.getElementById('mayor-menor').setAttribute("checked",true);
             url.searchParams.append('ordenar_por','1');
             console.log("URL actual: "+url.href);
@@ -190,11 +187,6 @@
             window.location = url;
 
         }
-        function cerrar(){
-            var aux = document.getElementById("botonCerrarAuxiliar");
-            aux.innerText("false");
-        }
-
     </script>
 
 </body>

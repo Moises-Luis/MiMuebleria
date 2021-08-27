@@ -1,5 +1,6 @@
 package com.example.mimuebleria;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -117,5 +118,46 @@ public class DBCalculator {
             }
         }
         return false;
+    }
+    public void eliminarRegistro(String cadena) {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(URL_MYSQL, USER, PASSWORD);
+            Statement eliminar = connection.createStatement();
+            eliminar.executeUpdate("DELETE FROM pieza WHERE tipo="+"'"+cadena+"'");
+            System.out.println("tipo="+cadena);
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    public void editarRegistro(String tipoPieza, Float precioPieza, int cantidadPieza){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(URL_MYSQL, USER, PASSWORD);
+            Statement update = connection.createStatement();
+            update.executeUpdate("UPDATE pieza SET cantidad ="+cantidadPieza+", precio ="+precioPieza+" WHERE tipo="+"'"+tipoPieza+"'");
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

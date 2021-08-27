@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>fabrica</title>
-    <link rel="stylesheet" href="css/fabrica.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fabrica.css">
 </head>
 
 <body>
